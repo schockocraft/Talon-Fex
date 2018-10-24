@@ -1,3 +1,3 @@
 #!/bin/bash
 start=$(date +%y-%m-%d_%H-%M)
-script -c "node index.js" "./log/${start}.log"
+script -c "node start.js" "./log/${start}.log"
