@@ -106,7 +106,36 @@ else return false;
 
 }
 
-
+/*
+try {
+	if (message.channel.parent.name == "Games") {
+		if (message.channel.name == "main_lobby") {
+			//if(command === "game" || command === "games") {
+			if (Object.values(cmdIndex.game.aliases).includes(command)) {
+    args.join(" ")
+	   game(client, message, args)
+	   return
+    }
+			//else if (command === "help") {
+			else if (Object.values(cmdIndex.help.aliases).includes(command))
+				args.join(" ")
+				help(client, message, args)
+				return
+				}
+			else {
+				gameChannel()
+				return
+				}
+			}
+		else {
+			//There has already to be an instance of game.js listening this channel at this point, so do nothing
+			//gameChannel()
+			return
+			}
+		}
+	  }
+	 catch (x) {}
+*/
 
 //Command
 

@@ -1,0 +1,19 @@
+{
+	"language": "de",
+	"general": {
+		
+		},
+	"git": {
+		"main": "Besuche das GitHub Repository von Talon Fex"
+		},
+	"reload": {
+		"all": " Alle Befehlsmodule wurden erfolgreich neu geladen",
+		"allErr": "⚠ Fehler beim Neu laden von allen Modulen:",
+		"cmd": " Befehl wurde neu geladen",
+		"cmdErr": "⚠ Fehler beim Laden von"
+		},
+	"restart": {
+		"pending": "Bot startet neu...",
+		"finished": "Bot hat erfolgreich neu gestartet"
+		}
+	}

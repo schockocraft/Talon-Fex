@@ -1,0 +1,19 @@
+{
+	"language": "en",
+	"general": {
+		
+		},
+	"git": {
+		"main": "Visit the GitHub Repository to Talon Fex"
+		},
+	"reload": {
+		"all": " successfully reloaded all command modules",
+		"allErr": "⚠ Error while trying to reload all modules:",
+		"cmd": " successfully reloaded module",
+		"cmdErr": "⚠ Error while trying to reload module"
+		},
+	"restart": {
+		"pending": "bot is restarting...",
+		"finished": "successfully restarted"
+		}
+	}

@@ -1,0 +1,69 @@
+{
+	"default": {
+		"debugname": "default",
+		"language": "en",
+		"permissions": [
+			
+			
+			 ],
+		"aliases": [
+		 
+		 
+		  ]
+		},
+	"0": {
+		"debugname": "Example",
+		"language": "en",
+		"permissions": [
+			["command", [{
+				"channels": ["all"],
+				"roles": ["all"],
+				"users": ["all"]
+				 }, {
+				"channels": ["idOfOneChannel", "idOfOtherChannel"],
+				"roles": [],
+				"users": []
+				 }, {
+				"channels": [],
+				"roles": [],
+				"users": []
+				 	}] 
+				 ],
+			["otherCommand", [{
+				"channels": [],
+				"roles": [],
+				"users": []
+				 	}]
+			  ]
+			 ],
+		"aliases": [
+		 ["alias", "command"], 
+		 ["otherAlias", "command"],
+		 ["anotherAlias", "otherCommand"]
+		  ]
+		},
+	"498229013093810177": {
+		"debugname": "Talon Fex",
+		"language": "de",
+		"permissions": [
+			
+			
+			 ],
+		"aliases": [
+		 
+		 
+	  	 ]
+		},
+	"490552548294524928": {
+		"debugname": "Xhadipack Dev",
+		"language": "en",
+		"permissions": [
+			
+			
+			 ],
+		"aliases": [
+		 
+		 
+		  ]
+		}
+	}

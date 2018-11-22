@@ -1,118 +1,79 @@
 module.exports = (client, message, command, args) => {
 
-
 		const { Client, RichEmbed } = require("discord.js");
-		const help = require("./commands/help.js");
-		const config = require("./config.json");
-		const home = client.guilds.get(config.myguild)
-		const superuserid = config.suid 
-	//the Value suid in the config stores the ID of this bot's one superuser
-	const botrole = config.permrole
-	const superuser = message.guild.members.get(superuserid)
-	const msguser = message.author.id
- const msgauthor = message.author.username
+		//client.config.suid 
+	 //client.config.permrole
+  //client.cmdMeta
+  
+//global > guild > channel/user/role/[combined]
  
+var cmdPerms = []
  
- 
- //=== Permission System === 
+ /*
+//custom guild permissions
 
-/*
-//perm
-if (isnotsu()) return;
-//code
-*/
+ if (message.channel.type == "text") {
+  	client.guildsMeta[message.guild.id].permissions.get(command).forEach(permSet => {
+  		cmdPerms.push(permSet)
+  		} )
+ 	}*/
 
-function isnotsu() {
-if(msguser !== superuserid ) {
-const plaintext = "<:warn_3:498277726604754946> Sorry, you don't have permissions to use this!"
+//static global permissions
+ client.cmdMeta[command].permissions.forEach(permSet => {
+ cmdPerms.push(permSet)
+ } )
+  client.cmdMeta.all.permissions.forEach(permSet => {
+ cmdPerms.push(permSet)
+ } )
+
+//temporary permissions
+ 
+//...
+
+//check if any permission set matches in channel AND role AND user; all (/none) is default and matches any
+if (cmdPerms.some(permSet => {
+	
+	try {
+		if (message.member.hasPermission(permSet.permission)) {
+			var hasPerm = true
+			}
+		else {
+			var hasPerm = false
+			}
+		}
+	catch (error) {
+		var hasPerm = false
+		}
+	try {
+	 if (permSet.roles.some(role => {message.member.roles.has(role)})) {
+			var hasRole = true
+			}
+		else {
+			var hasRole = false
+			}
+		}
+	catch (error) {
+		var hasRole = true
+		}
+	
+ if ((permSet.channels.includes(message.channel.id) || permSet.channels[0] == "all") && (hasRole || permSet.roles[0] == "all") && (permSet.users.includes(message.author.id) || permSet.users[0] == "all") && (hasPerm || permSet.permission == "none")) {
+ 	 //permission matches
+ 	return true
+  	} } ) ) {
+ return true
+ 	}
+else {
+//permission doesn't match
+console.log("user is not permitted to do this")
+ 	console.log(" ")
+const plaintext = "🛡 Sorry, you don't have permissions to use this!"
 const embed = new RichEmbed()  
-//.setTitle('Title') 
-.setColor(0xCC0000)  
-.setDescription('only ' + superuser + ' may use this command')
-//.setAuthor("Header")
-.setFooter("@" + msgauthor)
-//.addField("Field");
+embed.setTitle("Command: " + command)
+embed.setColor(0xCC0000)  
+embed.setDescription("Ask an Administrator or " + client.superuser.toString())
+//embed.setAuthor("Permissions")
+embed.setFooter("@" + message.author.username)
 message.channel.send(plaintext, embed);
-
-	/*
-return message.reply("Sorry, you don't have permissions to use this!")
-*/
-return true
-}
-else
-return false;
-}
-
-/*
-//perm
-if (isnotroleperm()) return;
-//code
-*/
-
-function isnotroleperm() {
-if(!message.member.roles.some(r=>[botrole].includes(r.name)) ) {
-
-	const plaintext = "<:warn_3:498277726604754946> Sorry, you don't have permissions to use this!"
-const embed = new RichEmbed()  
-//.setTitle('Title') 
-.setColor(0xCC0000)  
-.setDescription('only user of role ' + botrole + ' may use this command')
-//.setAuthor("Header")
-.setFooter("@" + msgauthor)
-//.addField("Field");
-message.channel.send(plaintext, embed);
-
-return true
-}
-else
-return false;
-}
-
-function isnotperm() {
-	if(!message.member.roles.some(r=>[botrole].includes(r.name)) && msguser !== superuserid ) {
-			const plaintext = "<:warn_3:498277726604754946> Sorry, you don't have permissions to use this!"
-const embed = new RichEmbed()  
-//.setTitle('Title') 
-.setColor(0xCC0000)  
-.setDescription('only user of role ' + botrole + ' and ' + superuser + ' may use this command')
-//.setAuthor("Header")
-.setFooter("@" + msgauthor)
-//.addField("Field");
-message.channel.send(plaintext, embed);
-return true
-}
-else
-return false;
-}
-
-
-
- function helplink(cmd, firstarg)
-{
-//help
-if (firstarg == "help" || firstarg == "?")
-{
-	console.log("   └─> this Command substituted to help " + cmd)
-//help(cmd)
-args.join(" ")
-	help(client, message, cmd)
-return true
-}
-else return false;
-
-}
-
-
-
-//Command
-
-	//help
-if (helplink("rolecolor", args[0])) return;
-	//perm
-if (isnotperm()) return;
- //code
- 
- 
- 
- 
- 
+return false
+ }
+} //module.exports

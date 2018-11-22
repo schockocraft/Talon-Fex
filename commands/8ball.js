@@ -124,7 +124,7 @@ if (isnotperm()) return;
  	break;
  	}
 //const plaintext = args.join(" ")
-const plaintext = "__** > 8ball:**__"
+const plaintext = "__**8ball:**__"
 const embed = new RichEmbed()  
 //embed.setTitle() 
 embed.setColor(0x292f33)  

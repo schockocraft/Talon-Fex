@@ -241,23 +241,46 @@ while (rollcountcur < rollcountmax)
 //1⃣ 2⃣ 3⃣ 4⃣ 5⃣ 6⃣ 7⃣ 8⃣ 9⃣ 🔟
 else
 {
-//[-Eingeklammerte-] Zahlen
+//getrennte Zahlen
 var useEmotes = false
-var lastroll = rollcountmax - 1
+//var lastroll = rollcountmax - 1
 while (rollcountcur < rollcountmax)
 {
 	rollcountcur++;
-//	rollresult += "["
 	rollresult += (Math.floor((Math.random() * rolltype) + 1))
-//	rollresult += "] "
-  if (lastroll !== rollcountcur )
-  {
-	rollresult += " | ";
-	 }
-} 
+ console.log("rollcountmax: " + rollcountmax)
+ console.log("rollcountcur: " + rollcountcur)
+  //if (lastroll !== rollcountcur)
+ 
+ 
+ 
+ var isLastRoll = false
+ if(rollcountmax == rollcountcur) {
+ 	 var isLastRoll = true
+  	}
+ console.log("isLastRoll: " + isLastRoll)
+ 
+ var isNotLastRoll = false
+ if(rollcountmax !== rollcountcur) {
+ 	 var isNotLastRoll = true
+  	}
+ console.log("isNotLastRoll: " + isNotLastRoll)
+ 
+ 
+ 
+ 
+ 
+ if (rollcountmax == rollcountcur) {
+ 	 
+ 	 }
+ 	else {
+	 rollresult += " | ";
+	 } 
+	console.log(" ")
+} //while
 	
 //return message.channel.send("Diese Würfel wurden leider noch nicht geliefert...")
-}
+} //else
 
 
 //Ist Antwort zu lang?

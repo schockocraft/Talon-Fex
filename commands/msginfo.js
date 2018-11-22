@@ -1,0 +1,1 @@
+//markiert die letzten x Nachrichten in message.channel mit :info: Reactions, wenn ausgewählt → antwortet dann die jeweilige Metainfo 

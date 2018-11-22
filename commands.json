@@ -1,0 +1,242 @@
+{
+	"all": {
+		"aliases": [],
+		"permissions": [
+		 {
+		 	 "channels": ["all"],
+		 	 "roles": ["all"],
+		 	 "users": ["390525655974019073"],
+		 	 "permission": "none"
+		 	 }
+		 ]
+		},
+	"8ball": {
+		"aliases": ["fortune"],
+		"permissions": [
+		 {
+		  "channels": ["all"],
+		  "roles": ["all"],
+		  "users": ["all"],
+		  "permission": "none"
+		  }
+		 ]
+		},
+	"abgehoben": {
+	 "aliases": [],
+		"permissions": [
+		 {
+		  "channels": ["all"],
+		  "roles": ["all"],
+		  "users": ["all"],
+		 	 "permission": "none"
+		  }
+		 ]
+		},
+	"eval": {
+		"aliases": [],
+		"permissions": []
+		},
+ "figlet": {
+		"aliases": ["ascii"],
+		"permissions": [
+		 {
+		  "channels": ["all"],
+		  "roles": ["all"],
+		  "users": ["all"],
+		 	 "permission": "none"
+		  }
+		 ]
+		},
+	"game": {
+		"aliases": ["games"],
+		"permissions": [
+		 {
+		  "channels": ["all"],
+		  "roles": ["all"],
+		  "users": ["all"],
+		 	 "permission": "none"
+		  }
+		 ]
+		},
+	"get": {
+		"aliases": [],
+		"permissions": [
+		 {
+		  "channels": ["all"],
+		  "roles": ["all"],
+		  "users": ["all"],
+		 	 "permission": "none"
+		  }
+		 ]
+		},
+	"git": {
+		"aliases": ["github", "source"],
+		"permissions": [
+		 {
+		  "channels": ["all"],
+		  "roles": ["all"],
+		  "users": ["all"],
+		 	 "permission": "none"
+		  }
+		 ]
+		},
+	"help": {
+		"aliases": [],
+		"permissions": [
+		 {
+		  "channels": ["all"],
+		  "roles": ["all"],
+		  "users": ["all"],
+		 	 "permission": "none"
+		  }
+		 ]
+		},
+	"info": {
+		"aliases": ["botinfo", "bot"],
+		"permissions": [
+		 {
+		  "channels": ["all"],
+		  "roles": ["all"],
+		  "users": ["all"],
+		 	 "permission": "none"
+		  }
+		 ]
+		},
+	"msginfo": {
+		"aliases": [],
+		"permissions": [
+		 {
+		  "channels": ["all"],
+		  "roles": ["all"],
+		  "user": ["all"],
+		 	 "permission": "ADD_REACTIONS"
+		  }
+		 ]
+		},
+	"kill": {
+		"aliases": [],
+		"permissions": []
+		},
+	"log": {
+		"aliases": ["conmsg"],
+		"permissions": [
+		 {
+		  "channels": ["all"],
+		  "roles": ["all"],
+		  "users": ["384417275618394123"],
+		 	 "permission": "none"
+		  }
+		 ]
+		},
+	"ping": {
+		"aliases": [],
+		"permissions": [
+		 {
+		  "channels": ["all"],
+		  "roles": ["all"],
+		  "users": ["all"],
+		 	 "permission": "MENTION_EVERYONE"
+		  }
+		 ]
+		},
+	"reload": {
+		"aliases": [],
+		"permissions": []
+		},
+	"restart": {
+		"aliases": [],
+		"permissions": []
+		},
+	"rolecolor": {
+		"aliases": [],
+		"permissions": [
+		 {
+		  "channels": ["all"],
+		  "roles": ["all"],
+		  "users": ["all"],
+		 	 "permission": "MANAGE_ROLES"
+		  }
+		 ]
+		},
+	"roll": {
+		"aliases": ["dice"],
+		"permissions": [
+		 {
+		  "channels": ["all"],
+		  "roles": ["all"],
+		  "users": ["all"],
+		 	 "permission": "none"
+		  }
+		 ]
+		},
+	"say": {
+		"aliases": [],
+		"permissions": [
+		 {
+		  "channels": ["all"],
+		  "roles": ["all"],
+		  "users": ["all"],
+		 	 "permission": "MANAGE_MESSAGES"
+		  }
+		 ]
+		},
+	"setup": {
+		"aliases": ["settings"],
+		"permissions": [
+		 {
+		  "channels": ["all"],
+		  "roles": ["all"],
+		  "users": ["all"],
+		 	 "permission": "MANAGE_GUILD"
+		  }
+		 ]
+		},
+	"shrug": {
+		"aliases": ["kp"],
+		"permissions": [
+		 {
+		  "channels": ["all"],
+		  "roles": ["all"],
+		  "users": ["all"],
+		 	 "permission": "none"
+		  }
+		 ]
+		},
+	"suggest": {
+		"aliases": [],
+		"permissions": [
+		 {
+		  "channels": ["all"],
+		  "roles": ["all"],
+		  "users": ["390525655974019073"],
+		 	 "permission": "none"
+		  }
+		 ]
+		},
+	"say": {
+		"aliases": ["echo"],
+		"permissions": [
+		 {
+		  "channels": ["all"],
+		  "roles": ["all"],
+		  "users": ["384417275618394123"],
+		 	 "permission": "none"
+		  }
+		 ]
+		},
+	"typing": {
+		"aliases": [],
+		"permissions": []
+		},
+	"unfähig": {
+		"aliases": [],
+		"permissions": [
+		 {
+		  "channels": ["all"],
+		  "roles": ["all"],
+		  "users": ["all"],
+		 	"permission": "none"
+		  }
+		 ]
+		}
+	}
