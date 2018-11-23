@@ -1,5 +1,7 @@
 module.exports = (oldclient, restartmsg) => {
 	
+	oldclient.terminal.close()
+	
 	delete require.cache
 	
 //Neuen Client Herstellen
@@ -22,7 +24,7 @@ client.resolve = require("util").inspect
 client.exec = require("child_process").exec;
 client.responses = new Discord.Collection();
 client.terminal = require('readline').createInterface({input: process.stdin, output: process.stdout, terminal: true})
-//map[msgId,respId]; locked=deleted; no command=null
+client.terminal.setPrompt("")
 client.guildsMeta = require("./guilds.json")
 //To-Do: Add Setup-per-Guild support
 client.captions = {}
@@ -149,14 +151,16 @@ client.superuser = client.home.members.get(client.config.suid);
 	
  oldclient.destroy()
  //oldclient = null
+ 
+ console.log("swapping clients...")
+	console.log(" ")
 
 }); //client.once("ready")
 
 client.on("ready", () => {
  console.log(" > client restarted at " + moment(Date.now()).format("HH:mm:ss, DD.MM.YYYY"))
 	console.log(" ")
-	console.log("closing connection of client's old instance...")
-	console.log(" ")
+	
 }) //client.on("ready")
 
 //Started Bot

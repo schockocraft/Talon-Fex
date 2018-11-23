@@ -1,6 +1,6 @@
 module.exports = (client, message, editedMessage) => {
 	
-	const bot = require("./bot.js")
+	const bot = require("./utility/bot.js")
 	const reactions = require("./utility/reaction.js")
 	const help = require("./commands/help.js");
 	const permcheck = require("./permissions.js")
@@ -59,10 +59,10 @@ function cmdCall(cmd) {
 	 }
 	else {
 		 console.log("checking for perms")
-	  console.log(" ")
+	  //console.log(" ")
   if (permcheck(client, message, command)) {
   	 console.log("trying to execute")
-	  console.log(" ")
+	  //console.log(" ")
   	cmd(client, message, args)
   	 }
   	else {
@@ -85,23 +85,19 @@ switch (message.channel.type) {
   //message.domain = client.home.systemChannel
  break;
  }
- 
- //is the author a bot?
-if(message.author.bot) {
-	//args.join(" ");
-	//bot(client, message, command, args)
-	return
-	}
-
-/*  	
+	
 //is there a special prefix for this guild?
-if() {
-	//Prefix per Guild is not yet avaivable
+console.log("prefix of guild's config is: " + client.guildsMeta[message.guild.id].prefix)
+
+if(client.guildsMeta[message.guild.id].prefix == "") {
+	 console.log("set prefix to default")
+	 var prefixHere = client.config.prefix
 	}
 else {
-	*/
-	const prefixHere = client.config.prefix
-	//}
+	console.log("set prefix to config entry")
+	var prefixHere = client.guildsMeta[message.guild.id].prefix
+	}
+	console.log("resolved prefix: " + prefixHere)
 
 //is there already a response to the message? 
 if(editedMessage !== null) {
@@ -126,6 +122,13 @@ const command = args.shift().toLowerCase();
 
 console.log("command is " + command)
 //console.log(" ")
+
+ //is the author a bot?
+if(message.author.bot) {
+	//args.join(" ");
+	bot(client, message, command, args)
+	return
+	}
 
 if (client.commands.has(command)) {
 	var exec_cmd = client.commands.get(command)

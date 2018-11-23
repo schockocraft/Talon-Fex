@@ -7,7 +7,7 @@ module.exports = (client, message, args) => {
 async function main () {
  if (message !== null) {
   var msg = await message.channel.send(client.emote("load") + message.c.restart.pending);
-  msg.newtext = client.emote("check_b") + message.c.restart.finished
+  msg.newtext = client.emote("check_b") + " " + message.c.restart.finished
   }
  else {
  	 var msg = null

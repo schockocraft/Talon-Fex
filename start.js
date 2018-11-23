@@ -16,7 +16,7 @@ client.resolve = require("util").inspect
 client.exec = require("child_process").exec;
 client.responses = new Discord.Collection();
 client.terminal = require('readline').createInterface({input: process.stdin, output: process.stdout, terminal: true})
-//map[msgId,respId]; locked=deleted; no command=null
+client.terminal.setPrompt("")
 client.guildsMeta = require("./guilds.json")
 //To-Do: Add Setup-per-Guild support
 client.captions = {}
