@@ -2,7 +2,11 @@ module.exports = (oldclient, restartmsg) => {
 	
 	oldclient.terminal.close()
 	
-	delete require.cache
+	Object.keys(require.cache).forEach(key => {
+		if (key.indexOf("node_modules") == -1) {
+	  delete require.cache[key]
+	  }
+	 })
 	
 //Neuen Client Herstellen
 	
