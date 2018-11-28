@@ -1,17 +1,24 @@
 module.exports = (client, line) => {
 	
 	const reload = require('./../commands/reload.js')
-	//const restart = require('./../commands/restart.js')
+	const restart = require('./../commands/restart.js')
 	const kill = require('./../commands/kill.js')
 	
-	const input = line.slice(client.config.prefix.length).trim().split(/ +/g);	
+	const input = line.trim().split(/ +/g);	
 	
 	switch (input[0]) {
 		case "eval":
-		 
+	  input.shift()
+	  try {
+		  const result = eval(input.join(" "))
+	  	 console.log(result)
+		  }
+	  catch(error) {
+	  	 console.log("Error: " + error)
+	   	}
 		break;
 		case "restart":
-		 
+		 restart(client, null)
 		break;
 		case "reload":
 		 input.shift()
@@ -32,7 +39,7 @@ module.exports = (client, line) => {
 		 console.log(" │   └─>")
 		 console.log(" ├─>eval")
 		 console.log(" │   └─>execute code")
-		 console.log(" ├─>help")
+		 console.log(" ├─>help/commands")
 		 console.log(" │   └─>show this list")
 		 console.log(" ├─>info")
 		 console.log(" │   └─>show package.json")

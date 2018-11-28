@@ -3,6 +3,14 @@
 	"general": {
 		
 		},
+	"modules": {
+		"message": {
+		 "ambiguousIdLeft": "is an ambiguous command identificator. Do you mean",
+		 "ambiguousIdRight": "Please use clear abbreviations.",
+		 "noMatch": "couldn't be resolved to a command",
+		 "b": ""
+		 }
+		},
 	"git": {
 		"main": "Visit the GitHub Repository to Talon Fex"
 		},

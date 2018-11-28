@@ -2,6 +2,7 @@ module.exports = (client, message, args) => {
 
 
 		const { Client, RichEmbed } = require("discord.js");
+		const resetReload = require('../debug/resetReload.js')
 
  //code
  
@@ -27,14 +28,17 @@ module.exports = (client, message, args) => {
    embed.setAuthor(command, "https://image.flaticon.com/icons/png/256/136/136530.png", "https://github.com/schockocraft/Talon-Fex/blob/master/commands/" + command + ".js")
     message.respond(client.emote("check_b") + message.c.reload.cmd, embed)
    }
+  console.log("successfully reloaded " + command)
   
   	}
  
  const embed = new RichEmbed()
+if (message !== null) {
   embed.setFooter("@" + message.author.username)
+ }
  
- if (!args[0] || ["all","modules","commands"].includes(args[0])) {
- 	//reload all modules
+ if (!args[0] || ["all","commands"].includes(args[0])) {
+ 	//reload all commands
  	 try {
    client.cmdfiles.forEach(file => {
     delete require.cache[require.resolve("./" + file)]
@@ -48,11 +52,22 @@ module.exports = (client, message, args) => {
   client.loadCommands()
    }
   catch (error) {
-   console.log("Error while trying to reload all modules: " + error)
+   console.log("Error while trying to reload all modules:")
+   console.log(client.resolve(error))
    if (message !== null) {
     embed.setColor(0xffcc4d)
-    embed.setDescription(error)
+    embed.setDescription(client.resolve(error))
+    client.lastError = error
     message.respond(message.c.reload.allErr, embed)
+    
+    try {
+     resetReload(client)
+     }
+    catch (err) {
+    	console.log("unable to reset reload: " + err)
+    	return
+    	}
+    console.log("resetted reload. reloading again after fixing the error will revive bot")
     return
     }
    }

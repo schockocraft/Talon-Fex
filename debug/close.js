@@ -64,12 +64,19 @@ switch (closeEvent.code) {
 	  }
 	break;
 	}
+	
+if (closeEvent.reason == null) {
+	var cause = " caused by: " + closeEvent.reason
+	}
+else {
+	var cause = ""
+	}
 
 if (closeEvent.wasClean) {
-		console.log("the client's connection was cleanly closed with the code " + closeCode + " caused by: " + closeEvent.reason)
+		console.log("the client's connection was cleanly closed with the code " + closeCode + cause)
 		}
 	else {
-	 console.log("the client's connection violently terminated with the code " + closeCode + " caused by: " + closeEvent.reason)
+	 console.log("the client's connection violently terminated with the code " + closeCode + cause)
 	 }
 	 console.log(" ")
 	 

@@ -1,7 +1,93 @@
 module.exports = (client, message, args) => {
 
 const { Client, RichEmbed } = require("discord.js");
+
+const embed = new RichEmbed()
+const verbuddeln = require('./verbuddeln.js')
+
+function selfMention () {
+	
+	}
+
+function randomMention () {
+	
+	}
+
+function byRaw () {
+	if (message.guild.roles.has(String(/\d+/.exec(args[0])))) {
+		//found id resolvable to role
+		message.channel.send("role resolvable: " + message.guild.roles.get(String(/\d+/.exec(args[0]))).toString())
+		}
+	else if (message.guild.members.has(String(/\d+/.exec(args[0])))) {
+		//found id resolvable to user
+		message.channel.send("user resolvable: " + message.guild.members.get(String(/\d+/.exec(args[0]))).toString())
+		}
+	else {
+		message.channel.send("string resolvable: " + args[0])
+		}
+	
+	
+	}
+
+function byId () {
+	
+	}
+
+function by () {
+	
+	}
+
+function byMention () {
+	
+	}
+
+switch (args[0]) {
+	case "@me":
+	case "me":
+	case "@s":
+	 selfMention()
+	break;
+	case "@all":
+	case "all":
+	case "@a":
+	case "@everyone":
+	case "@here":
+	 verbuddeln(client, message)
+	break;
+	case "@random":
+	case "@r":
+	 randomMention()
+	break;
+	default:
+	 byRaw()
+	break;
+	}
+
+
+} //module.exports
+
+/*
+Cases:
+special (@all, etc. / bot, su, author)
+mention (role/user)
+give id (role/user)
+
+
+special:
+all (special)
+author (special/mention/id→)
+bot (mention/id→)
+su (mention/id→)
+random (special)
+
+
+raw > isNan
+ true: Id > role/user
+ false: [Mention > role/user]/Plain 
  
+*/
+
+ /*
 //code
 	   
 const embed = new RichEmbed()
@@ -9,9 +95,9 @@ var rawmention = args.join(" ")
 var special = false
 	   
 switch (args[0]) {
-	   /*
+	   
 	//erstes argument ist @me
-	if (args[0] == "@me" || args[0] == "me" || args[0] == "@s") {*/
+	//if (args[0] == "@me" || args[0] == "me" || args[0] == "@s") {
 	case "@me":
 	case "me":
 	case "@s":
@@ -47,7 +133,8 @@ switch (args[0]) {
 	break;
 	default:
 	//erstes argument ist vorhanden
-	/*else*/ if (args[0]) {
+	//else if (args[0]) {
+		if (args[0]) {
 		
 		 if (rawmention.indexOf("@") == 0) {
 		 	 var mention = rawmention.slice(1)
@@ -96,8 +183,8 @@ switch (args[0]) {
 		console.log(" ")
 	 }
 	 
-	 break;
-	 }
+	 break; //default
+	 } //switch
 	 
 	//mentionuser konvertieren
 	 
@@ -190,4 +277,4 @@ embed.setColor(0x36393E)
  message.respond(plaintext, embed);
  return
  }
-}
+}*/

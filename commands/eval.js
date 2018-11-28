@@ -309,6 +309,7 @@ async function resolveResult(response, result, depth) {
 	  	respond(result)
 		}
 	catch(error) {
+		var resErr = client.resolve(error)
 		var plaintext = "⚠ error on trying to execute eval:" 
 embed.setColor(0xffcc4d)  
 //alter längenbegrenzer
@@ -316,7 +317,7 @@ if (cmd.length < 256) {
 embed.setTitle(cmd) }
 else embed.setTitle(cmd.slice(0, cmd.indexOf(" ")) + "...");
 // -
-embed.setDescription(error)
+embed.setDescription(resErr.slice(0, resErr.search(/\n[ ]+at eval [(]eval at module[.]exports.+eval[.]js/)))
 embed.setAuthor("Eval")
 embed.setFooter("@" + message.author.username)
   message.respond(plaintext, embed);

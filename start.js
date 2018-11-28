@@ -25,6 +25,19 @@ client.captions = {}
 
 //Globale Funktionen
 
+//submodules (returns 
+/*
+client.loadSubModules = () => {
+ 
+ client.modules = {}
+ 
+ return (var testxyz = "abc123")
+ 
+ //return function / function.??? (export?)
+ }
+*/
+
+
 /*function reloadWebhooks() {
 client.guilds.array().forEach(guild => {guild.fetchWebhooks().then(resp => guild.webhooks = resp)})}
 client.reloadWebhooks() = reloadWebhooks()*/
@@ -53,6 +66,7 @@ client.emote = sym => {
 
 //client.hasToString = function(item) {
 client.hasToString = item => {
+	console.log("client.hasToString() is used")
 	var result = false
 	try {
 		const string = item.toString()
@@ -78,12 +92,11 @@ console.log("  |_| \\__,_|_/\\___/|_| |_|  |_|   \\___||_/\\_|");
 console.log ("---------------------------------------------------")
 
 
+
 //Import von Command Modulen
 client.loadCommands = () => {
 
 client.commands = new Discord.Collection();
-
-
 
 client.cmdfiles = fs.readdirSync("./commands/")
 /*fs.readdir("./commands/", (fserror, cmdfiles) => {
@@ -108,8 +121,6 @@ client.cmdfiles = fs.readdirSync("./commands/")
     
   //} ) //fs.readdir
   
-  
-  
 //Import von globalen Aliasen
 
 client.aliases = new Discord.Collection()
@@ -128,6 +139,8 @@ console.log(" ")
 
 } //client.loadCommands
 
+
+
 //Sprachen
 
 client.loadLanguages = () => {
@@ -137,9 +150,13 @@ client.loadLanguages = () => {
 		})
 	} //client.loadLanguages
   
+  
+  
   client.loadCommands()
 
   client.loadLanguages()
+  
+  
   
 //Starting Bot
 client.once("ready", () => {
@@ -159,10 +176,10 @@ console.log(" ")
 console.log("type 'help' to get more information about how to use console ")
 console.log(" ")
 
-//Set Activity
-client.user.setActivity("messages from you", { type: 'LISTENING' });
-
  client.on("ready", () => {
+ 	//Set Activity
+   client.user.setActivity("messages from you", { type: 'LISTENING' });
+   
 	  console.log(" > client restarted at " + moment(Date.now()).format("HH:mm:ss, DD.MM.YYYY"))
 	  console.log(" ")
 	 }) //client.on("ready")

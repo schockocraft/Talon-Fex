@@ -3,6 +3,14 @@
 	"general": {
 		
 		},
+	"modules": {
+		"message": {
+		 "ambiguousIdLeft": "ist eine mehrdeutige abkürzung. Meintest du",
+		 "ambiguousIdRight": "Nutze bitte klarere Abkürzungen.",
+		 "noMatch": "konnte nicht vervollständigt werden",
+		 "b": ""
+		 }
+		},
 	"git": {
 		"main": "Besuche das GitHub Repository von Talon Fex"
 		},

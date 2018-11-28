@@ -162,6 +162,9 @@ client.superuser = client.home.members.get(client.config.suid);
 }); //client.once("ready")
 
 client.on("ready", () => {
+	//Set Activity
+ client.user.setActivity("messages from you", { type: 'LISTENING' });
+	
  console.log(" > client restarted at " + moment(Date.now()).format("HH:mm:ss, DD.MM.YYYY"))
 	console.log(" ")
 	
