@@ -11,8 +11,11 @@
 		 "b": ""
 		 }
 		},
-	"git": {
-		"main": "Besuche das GitHub Repository von Talon Fex"
+	"commands": {
+	 "git": {
+		 "main": "Besuche das GitHub Repository von Talon Fex",
+		 "update": "Ein neues Update für Talon Fex wurde veröffentlicht! Sieh es dir jetzt auf GitHub an!"
+		 }
 		},
 	"reload": {
 		"all": " Alle Befehlsmodule wurden erfolgreich neu geladen",
