@@ -16,7 +16,7 @@ module.exports = (client, message, args) => {
    console.log("Error while trying to reload " + command + ": " + error)
    if (message !== null) {
     embed.setColor(0xffcc4d)
-    embed.setDescription(error)
+    embed.setDescription(client.resolve(error))
     embed.setAuthor(command)
     message.respond(message.c.reload.cmdErr, embed)
     return
