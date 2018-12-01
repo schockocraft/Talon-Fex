@@ -1,5 +1,6 @@
 {
 	"language": "en",
+	"quotes": ["”", "“"],
 	"general": {
 		
 		},
@@ -14,17 +15,24 @@
 	"commands": {
 	 "git": {
 		 "main": "Visit the GitHub Repository to Talon Fex",
-		 "update": "A new update of Talon Fex is out! Check out on GitHub!"
-		 }
-		},
-	"reload": {
-		"all": " successfully reloaded all command modules",
-		"allErr": "⚠ Error while trying to reload all modules:",
-		"cmd": " successfully reloaded module",
-		"cmdErr": "⚠ Error while trying to reload module"
-		},
-	"restart": {
-		"pending": "bot is restarting...",
-		"finished": "successfully restarted"
-		}
+		 "update": "A new update of Talon Fex is out! Check out on GitHub!",
+		 "cmdLeft": "View",
+		 "cmdMulti": "files",
+		 "cmdRight": "on GitHub",
+		 "noMatchLeft": "Can not find module",
+		 "noMatchRight": ""
+		 },
+		"reload": {
+		 "all": " successfully reloaded all command modules",
+		 "allErr": "⚠ Error while trying to reload all modules:",
+		 "cmd": " successfully reloaded module",
+		 "cmdErr": "⚠ Error while trying to reload module",
+		 "noMatch": "is no command"
+		 },
+  "restart": {
+   "pending": "bot is restarting...",
+	  "finished": "successfully restarted",
+	  "error": "error while trying to restart the bot"
+	  }
+	 }
 	}

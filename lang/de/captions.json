@@ -1,5 +1,6 @@
 {
 	"language": "de",
+	"quotes": ["„", "“"],
 	"general": {
 		
 		},
@@ -14,17 +15,24 @@
 	"commands": {
 	 "git": {
 		 "main": "Besuche das GitHub Repository von Talon Fex",
-		 "update": "Ein neues Update für Talon Fex wurde veröffentlicht! Sieh es dir jetzt auf GitHub an!"
+		 "update": "Ein neues Update für Talon Fex wurde veröffentlicht! Sieh es dir jetzt auf GitHub an!",
+		 "cmdLeft": "Sieh dir",
+		 "cmdMulti": "Dateien",
+		 "cmdRight": "auf GitHub an",
+		 "noMatchLeft": "Kann Modul",
+		 "noMatchRight": "nicht finden"
+		 },
+		"reload": {
+		 "all": " Alle Befehlsmodule wurden erfolgreich neu geladen",
+		 "allErr": "⚠ Fehler beim Neu laden von allen Modulen:",
+		 "cmd": " Befehl wurde neu geladen",
+		 "cmdErr": "⚠ Fehler beim Laden von",
+		 "noMatch": "ist kein Befehl"
+		 },
+	 "restart": {
+		 "pending": "Bot startet neu...",
+		 "finished": "Bot hat erfolgreich neu gestartet",
+		 "error": "Fehler beim Neustarten des Bots"
 		 }
-		},
-	"reload": {
-		"all": " Alle Befehlsmodule wurden erfolgreich neu geladen",
-		"allErr": "⚠ Fehler beim Neu laden von allen Modulen:",
-		"cmd": " Befehl wurde neu geladen",
-		"cmdErr": "⚠ Fehler beim Laden von"
-		},
-	"restart": {
-		"pending": "Bot startet neu...",
-		"finished": "Bot hat erfolgreich neu gestartet"
 		}
 	}

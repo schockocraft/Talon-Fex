@@ -91,17 +91,6 @@
 		  }
 		 ]
 		},
-	"info": {
-		"aliases": ["botinfo", "bot"],
-		"permissions": [
-		 {
-		  "channels": ["all"],
-		  "roles": ["all"],
-		  "users": ["all"],
-		 	 "permission": "none"
-		  }
-		 ]
-		},
 	"msginfo": {
 		"aliases": [],
 		"permissions": [
@@ -136,6 +125,17 @@
 		  "roles": ["all"],
 		  "users": ["all"],
 		 	 "permission": "MENTION_EVERYONE"
+		  }
+		 ]
+		},
+	"readme": {
+		"aliases": ["info"],
+		"permissions": [
+		 {
+		  "channels": ["all"],
+		  "roles": ["all"],
+		  "users": ["all"],
+		 	 "permission": "none"
 		  }
 		 ]
 		},
@@ -208,6 +208,17 @@
 		  }
 		 ]
 		},
+	"status": {
+		"aliases": ["botinfo", "bot"],
+		"permissions": [
+		 {
+		  "channels": ["all"],
+		  "roles": ["all"],
+		  "users": ["all"],
+		 	 "permission": "none"
+		  }
+		 ]
+		},
 	"suggest": {
 		"aliases": [],
 		"permissions": [
@@ -224,6 +235,17 @@
 		"permissions": []
 		},
 	"unfähig": {
+		"aliases": [],
+		"permissions": [
+		 {
+    "channels": ["all"],
+    "roles": ["all"],
+    "users": ["all"],
+    "permission": "none"
+		  }
+		 ]
+		},
+	"verbuddeln": {
 		"aliases": [],
 		"permissions": [
 		 {

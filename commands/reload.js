@@ -8,6 +8,7 @@ module.exports = (client, message, args) => {
  
  function reloadCmd (command) {
   try {
+   const fallback = client.commands.get(command)
    client.commands.delete(command)
    delete require.cache[require.resolve("./" + command + ".js")]
  	  client.commands.set(command, require("./" + command + ".js"))
@@ -18,7 +19,11 @@ module.exports = (client, message, args) => {
     embed.setColor(0xffcc4d)
     embed.setDescription(client.resolve(error))
     embed.setAuthor(command)
-    message.respond(message.c.reload.cmdErr, embed)
+    message.respond(message.c.commands.reload.cmdErr, embed)
+    //recover ~~previous~~ *reloadable* state
+    client.commands.set(command, null)
+    embed.setTitle("recovered previous module")
+    message.respond(message.c.commands.reload.cmdErr, embed)
     return
     }
    }
@@ -26,7 +31,7 @@ module.exports = (client, message, args) => {
    embed.setColor(0x36393E)
    console.log("successfully reloaded module " + command)
    embed.setAuthor(command, "https://image.flaticon.com/icons/png/256/136/136530.png", "https://github.com/schockocraft/Talon-Fex/blob/master/commands/" + command + ".js")
-    message.respond(client.emote("check_b") + message.c.reload.cmd, embed)
+    message.respond(client.emote("check_b") + message.c.commands.reload.cmd, embed)
    }
   console.log("successfully reloaded " + command)
   
@@ -58,7 +63,7 @@ if (message !== null) {
     embed.setColor(0xffcc4d)
     embed.setDescription(client.resolve(error))
     client.lastError = error
-    message.respond(message.c.reload.allErr, embed)
+    message.respond(message.c.commands.reload.allErr, embed)
     
     try {
      resetReload(client)
@@ -75,7 +80,7 @@ if (message !== null) {
   embed.setColor(0x36393E)
   console.log("successfully reloaded all command modules")
    if (message !== null) {
-    message.respond(client.emote("check_b") + message.c.reload.all, embed)
+    message.respond(client.emote("check_b") + message.c.commands.reload.all, embed)
     }
   }
  else {
@@ -85,7 +90,11 @@ if (message !== null) {
 	  }
   else if (client.aliases.has(args[0])) {
 	  reloadCmd(client.aliases.get(args[0]))
-	  } //else if
+	  } 
+	 else {
+	  //input is no module
+	   message.respond("⚠`" + args[0] + "` " + message.c.commands.reload.noMatch)
+	  }
  	 	
  	 } //else
  

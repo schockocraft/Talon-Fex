@@ -1,3 +1,15 @@
+module.exports = (oldclient, restartmsg) => {
+	
+	oldclient.terminal.close()
+	
+	Object.keys(require.cache).forEach(key => {
+		if (key.indexOf("node_modules") == -1) {
+	  delete require.cache[key]
+	  }
+	 })
+	
+//Neuen Client Herstellen
+	
 //Import der Discord API
 const Discord = require("discord.js");
 
@@ -24,18 +36,6 @@ client.captions = {}
 
 
 //Globale Funktionen
-
-//submodules (returns 
-/*
-client.loadSubModules = () => {
- 
- client.modules = {}
- 
- return (var testxyz = "abc123")
- 
- //return function / function.??? (export?)
- }
-*/
 
 client.fillGaps = inArr => {
  var outArr = []
@@ -73,7 +73,6 @@ client.emote = sym => {
 
 //client.hasToString = function(item) {
 client.hasToString = item => {
-	console.log("client.hasToString() is used")
 	var result = false
 	try {
 		const string = item.toString()
@@ -89,21 +88,14 @@ client.hasToString = item => {
 
 const eventHandler = require("./events.js");
 
-//Nice Startup Screen with Ascii-art
-console.log ("---------------------------------------------------")
-console.log(" _____      _                ____");
-console.log("|_   _|__ _| | ___  _ __    |  __| ___  _  _");
-console.log("  | | / _` | |/ _ \\| `_ \\   | |_  / _ \\\\ \\/ /");
-console.log("  | || (_| | | (_) | | | |  |  _||  __/ >  <");
-console.log("  |_| \\__,_|_/\\___/|_| |_|  |_|   \\___||_/\\_|");
-console.log ("---------------------------------------------------")
-
 
 
 //Import von Command Modulen
 client.loadCommands = () => {
 
 client.commands = new Discord.Collection();
+
+
 
 client.cmdfiles = fs.readdirSync("./commands/")
 /*fs.readdir("./commands/", (fserror, cmdfiles) => {
@@ -128,6 +120,8 @@ client.cmdfiles = fs.readdirSync("./commands/")
     
   //} ) //fs.readdir
   
+  
+  
 //Import von globalen Aliasen
 
 client.aliases = new Discord.Collection()
@@ -146,8 +140,6 @@ console.log(" ")
 
 } //client.loadCommands
 
-
-
 //Sprachen
 
 client.loadLanguages = () => {
@@ -157,13 +149,9 @@ client.loadLanguages = () => {
 		})
 	} //client.loadLanguages
   
-  
-  
   client.loadCommands()
 
   client.loadLanguages()
-  
-  
   
 //Starting Bot
 client.once("ready", () => {
@@ -171,29 +159,33 @@ client.once("ready", () => {
 client.home = client.guilds.get(client.config.myguild);
 client.superuser = client.home.members.get(client.config.suid);
 
-console.log("     _ Talon Fex " + client.meta.version + " by schockocraft")
-console.log(" _  // ")
-console.log(" \\\\//  Bot has successfully started")
-console.log("  \\/   ")
-console.log("    at " + moment(Date.now()).format("HH:mm:ss, DD.MM.YYYY")) 
-console.log("  with " + client.users.size + " users,")
-console.log("    in " + client.channels.size + " channels")
-console.log("    on " + client.guilds.size + " servers")
-console.log(" ")
-console.log("type 'help' to get more information about how to use console ")
-console.log(" ")
-
- client.on("ready", () => {
- 	//Set Activity
-   client.user.setActivity("messages from you", { type: 'LISTENING' });
-   
-	  console.log(" \u25B8 client restarted at " + moment(Date.now()).format("HH:mm:ss, DD.MM.YYYY"))
-	  console.log(" ")
-	 }) //client.on("ready")
+//Alten client Entfernen
+	
+ oldclient.destroy()
+ //oldclient = null
+ 
+ console.log("swapping clients...")
+	console.log(" ")
 
 }); //client.once("ready")
+
+client.on("ready", () => {
+	//Set Activity
+ client.user.setActivity("messages from you", { type: 'LISTENING' });
+	
+ console.log(" \u25B8 client restarted at " + moment(Date.now()).format("HH:mm:ss, DD.MM.YYYY"))
+	console.log(" ")
+	
+}) //client.on("ready")
+
 //Started Bot
 
 client.login(client.config.token);
 
 eventHandler(client);
+
+if (restartmsg !== null) {
+ restartmsg.edit(restartmsg.newtext);
+ }
+
+} //module.exports
