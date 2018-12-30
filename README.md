@@ -10,6 +10,7 @@ My first Programming project; it's a bot for discord in node.js
 	 	 ...
 	 	 ]}
 	 	 }`
+* Bot has to be in official Talon Fex Server or the id of home has to be changed to of a Server the Bot already joined
 * assure node is installed on your computer/server
 * on Linux start `bot.sh`
 * on Windows start `bot.bat` (coming soon™)
