@@ -9,19 +9,23 @@ module.exports = (client, message, command, args) => {
  
 var cmdPerms = []
  
- /*
+ 
 //custom guild permissions
 
- if (message.channel.type == "text") {
-  	client.guildsMeta[message.guild.id].permissions.get(command).forEach(permSet => {
+ if (message.channel.type == "text" && Object.keys(client.guildsMeta).includes(message.guild.id)) {
+  if (Object.keys(client.guildsMeta[message.guild.id].permissions).includes(command)) {
+  	client.guildsMeta[message.guild.id].permissions[command].forEach(permSet => {
   		cmdPerms.push(permSet)
   		} )
- 	}*/
+  	}
+ 	}
 
 //static global permissions
+if (Object.keys(client.cmdMeta).includes(command)) {
  client.cmdMeta[command].permissions.forEach(permSet => {
  cmdPerms.push(permSet)
  } )
+}
   client.cmdMeta.all.permissions.forEach(permSet => {
  cmdPerms.push(permSet)
  } )
