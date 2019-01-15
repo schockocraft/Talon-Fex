@@ -21,7 +21,6 @@ const EventEmitter = require('events');
  
  
  
- 
 async function createResponse(text, embed) {
 	
 	console.log("create response")
@@ -32,7 +31,12 @@ async function createResponse(text, embed) {
  console.log(" ")
  	}
  
- message.c = client.captions[client.guildsMeta[message.guild.id].language]
+ if (Object.keys(client.guildsMeta).includes(message.guild.id)) {
+  message.c = client.captions[client.guildsMeta[message.guild.id].language]
+  }
+ else {
+  message.c = client.captions[client.config.defaultLanguage]
+  }
  
  message.respond = async (text, embed) => {
  if (client.responses.has(message.id)) {
@@ -75,14 +79,23 @@ function cmdCall(cmd, cid) {
 	
 switch (message.channel.type) {
  case "dm":
-  message.domain = message.channel.recipient
+  message.domain = () => {
+   console.log("requesting message.domain")
+   return message.channel.recipient
+   }
  break;
  case "text":
-  message.domain = message.guild
+  message.domain = () => {
+   console.log("requesting message.domain")
+   return message.guild
+   }
   //message.domain = message.channel
  break;
  default:
-  message.domain = client.home
+  message.domain = async() => {
+   console.log("requesting message.domain")
+   return client.home
+   }
   //message.domain = client.home.systemChannel
  break;
  }
@@ -90,7 +103,10 @@ switch (message.channel.type) {
 //is there a special prefix for this guild?
 //console.log("prefix of guild's config is: " + client.guildsMeta[message.guild.id].prefix)
 
-if(client.guildsMeta[message.guild.id].prefix == "") {
+if (!Object.keys(client.guildsMeta).includes(message.guild.id)) {
+ var prefixHere = client.config.prefix
+ }
+else if (client.guildsMeta[message.guild.id].prefix == "") {
 	 //console.log("set prefix to default")
 	 var prefixHere = client.config.prefix
 	}
